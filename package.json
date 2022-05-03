@@ -1,0 +1,14 @@
+{
+  "name": "file-organizer",
+  "version": "1.0.0",
+  "description": "utility program that oraganizes files based on their extension",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "directory-tree": "^3.2.2"
+  }
+}
