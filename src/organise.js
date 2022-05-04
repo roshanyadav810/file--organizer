@@ -101,16 +101,16 @@ let organiseFileAccordingToTheirExtension = (directoryPath, fileOrganizationMap 
 
 
 let getFileNameMap = (directoryPath,folderDataList, index , fileOrganizationMap, callback)=>{
-    console.log("getFileNameMap called with index : ",index," , folderDataList length : ",folderDataList.length);
+    // console.log("getFileNameMap called with index : ",index," , folderDataList length : ",folderDataList.length);
     if(index >= folderDataList.length){
         callback(null,fileOrganizationMap);
     }
     else{
         let data = folderDataList[index];
         let dataPath = path.join(directoryPath,data);
-        console.log("3-a");
+        // console.log("3-a");
         checkWhetherFileOrNot(dataPath,(err , isFile)=>{
-            console.log("checkWhetherFileOrNot called with err : ",err," , isFile : ",isFile);
+            // console.log("checkWhetherFileOrNot called with err : ",err," , isFile : ",isFile);
             if(err){
                 callback("Error while checking path of file");
             }
@@ -137,19 +137,19 @@ let organise = function(directoryPath , callback){
         callback("directory path is not defined");
     }
     else{
-        console.log("step 1");
+        // console.log("step 1");
         fs.access(directoryPath,(err)=>{
             if(err){
                 callback("File does not exists");
             }
             else{
-                console.log("step 2");
+                // console.log("step 2");
                 fs.readdir(directoryPath,(err , folderDataList)=>{
                     if(err){
                         callback("Error while reading the directory");
                     }
                     else{
-                        console.log("step 3");
+                        // console.log("step 3");
                         let fileOrganizationMap = new Map();
                         let indexOfFolderDataArray = 0;
                         getFileNameMap(directoryPath,folderDataList, indexOfFolderDataArray , fileOrganizationMap, (err , fileOrganizationMap)=>{
@@ -157,7 +157,7 @@ let organise = function(directoryPath , callback){
                                 callback(err);
                             }
                             else{
-                                console.log("step 4");
+                                // console.log("step 4");
                                 console.log("file oragnization map : ",fileOrganizationMap);
                                 if(fileOrganizationMap.size > 0){
                                     let destDirectoryPath = path.join(directoryPath,"organise-file");
@@ -166,7 +166,7 @@ let organise = function(directoryPath , callback){
                                             callback(err);
                                         }
                                         else{
-                                            console.log("step 5");
+                                            // console.log("step 5");
                                             let fileTypeArray = Array.from(fileOrganizationMap.keys());
                                             let indexOfFileType = 0;
                                             organiseFileAccordingToTheirExtension(directoryPath, fileOrganizationMap , fileTypeArray , indexOfFileType ,()=>{
