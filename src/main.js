@@ -19,28 +19,13 @@ let cmdInput = process.argv.slice(2);
 
 switch(cmdInput[0]){
     case "Help":
-        // console.log("help : ",help);
-        help((err , result)=>{
-            if(err){
-                console.log(" Error while providing the help");
-            }
-            else{
-                console.log("Successfully provided the help");
-            }
-        });
+        help();
         break;
     case "Organise":
         try{
             let directoryPath = cmdInput[1];
             console.log("executing Organise section with directory path : ",directoryPath);
-            organise(directoryPath , (err , result)=>{
-                if(err){
-                    console.log("Error while organising the file : ",err);
-                }
-                else{
-                    console.log("successfully organised the file of directory");
-                }
-            }); 
+            organise(directoryPath); 
         }
         catch(err){
             console.error(err);

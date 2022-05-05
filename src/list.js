@@ -1,13 +1,12 @@
 const directoryTree = require('directory-tree');
 
-let list = (directoryPath , callback)=>{
+let list = (directoryPath)=>{
     if(directoryPath === undefined){
         // throw new Error("Not a valid directory path");
-        callback("Not a valid directory path");
+        throw new Error("Not a valid directory path");
     }
     else{
         console.log(directoryTree(directoryPath));
-        callback(null,"successfully shown directory");
     }
 };
 
